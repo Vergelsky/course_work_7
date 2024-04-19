@@ -19,7 +19,7 @@ from django.urls import path
 from rest_framework.routers import DefaultRouter
 
 from rooster.apps import RoosterConfig
-from rooster.views import CrossOneselfViewSet, UserViewSet
+from rooster.views import CrossOneselfViewSet, UserViewSet, PublicCrossOneselfListView
 
 app_name = RoosterConfig.name
 
@@ -30,4 +30,5 @@ router.register(r'user', UserViewSet, basename='user')
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
+                  path('public/', PublicCrossOneselfListView.as_view(), name='public'),
               ] + router.urls

@@ -6,7 +6,7 @@ NULLABLE = {'blank': True, 'null': True}
 
 # Create your models here.
 class CrossOneself(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='пользователь')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='пользователь', **NULLABLE)
     time = models.TimeField(verbose_name='время')
     action = models.CharField(max_length=600, verbose_name='действие')
     duration = models.DurationField(verbose_name='длительность')

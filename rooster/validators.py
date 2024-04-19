@@ -19,11 +19,12 @@ class DurationValidator:
     def __init__(self, fields):
         self.fields = fields
     def __call__(self, value):
-        if value.get(self.fields[0]) > timedelta(seconds=self.max_duration):
+        duration = value.get(self.fields[0])
+        if duration and duration > timedelta(seconds=self.max_duration):
             raise ValidationError("Привычка не должна быть дольше 120 секунд")
 
 
-class CainIsNiceValidator:
+class ChainIsNiceValidator:
     def __init__(self, fields):
         self.fields = fields
     def __call__(self, value):
@@ -46,6 +47,7 @@ class PeriodValidator:
     def __init__(self, fields):
         self.fields = fields
     def __call__(self, value):
-        if value.get(self.fields[0]) > self.max_period:
+        period = value.get(self.fields[0])
+        if period and period > self.max_period:
             raise ValidationError("Привычка не должна быть реже чем раз в 7 дней")
 
