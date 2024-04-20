@@ -1,5 +1,4 @@
-import re
-from datetime import datetime, timedelta
+from datetime import timedelta
 
 from rest_framework.validators import ValidationError
 

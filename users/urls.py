@@ -18,15 +18,15 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework.routers import DefaultRouter
 
-from rooster.apps import RoosterConfig
-from rooster.views import CrossOneselfViewSet, PublicCrossOneselfListView
+from users.apps import UsersConfig
+from users.views import UserViewSet
 
-app_name = RoosterConfig.name
+app_name = UsersConfig.name
 
 router = DefaultRouter()
-router.register(r'crossoneself', CrossOneselfViewSet, basename='crossoneself')
+
+router.register(r'', UserViewSet, basename='user')
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
-                  path('public/', PublicCrossOneselfListView.as_view(), name='public'),
               ] + router.urls

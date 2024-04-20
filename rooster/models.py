@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User
+
+from users.models import User
 
 NULLABLE = {'blank': True, 'null': True}
 
@@ -16,20 +17,9 @@ class CrossOneself(models.Model):
     place = models.CharField(max_length=600, verbose_name='место', **NULLABLE)
     chain_nice = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name='вознаграждение-привычка', **NULLABLE)
     prise = models.CharField(max_length=300, verbose_name='вознаграждение', **NULLABLE)
+    next_run = models.DateField(verbose_name='дата следующего выполнения', **NULLABLE)
 
     def __str__(self):
         if self.is_nice:
-            return (f"'Приятная привычка {self.action} пользователя {self.user}:\n"
-                    f"                   каждые {self.period} дней\n"
-                    f"                   на протяжении {self.duration} секунд\n"
-                    f"                   делать {self.action}.")
-        else:
-            return (f"'Полезная привычка {self.action} пользователя {self.user}:\n"
-                    f"                   каждые {self.period} дней\n"
-                    f"                   на протяжении {self.duration} секунд\n"
-                    f"                   делать {self.action},\n"
-                    f"                   за это можно {self.prise if self.prise
-                                                        else self.chain_nice.action if self.chain_nice else 'ничего'}.")
-
-
-
+            return (f"'Приятная привычка {self.action} пользователя {self.user}")
+        return (f"'Полезная привычка {self.action} пользователя {self.user}")

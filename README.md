@@ -3,21 +3,22 @@
 "Until the rooster pecks, the man will not cross himself"
 
 #### Регистрация польователя:
-POST: /user/<br>
+POST: /users<br>
 {<br>
-    "username": "user1",<br>
+    "email": "user1@sky.pro",<br>
+    "tg_id": 123456789,<br>
     "password": "1qaz2wsx"<br>
 }
 
 #### Получение токена:
 POST: /token/<br>
 {<br>
-    "username": "user3",<br>
+    "email": "user1@sky.pro",<br>
     "password": "1qaz2wsx"<br>
 }<br>
 
 #### Привычки текущего пользователя:
-GET: /crossoneself/
+GET: /crossoneself/?page=1
 
 #### Список публичных привычек:
 GET: /public/

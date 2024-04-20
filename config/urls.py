@@ -16,11 +16,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import permissions
+from rest_framework.schemas import get_schema_view, openapi
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+# schema_view = get_schema_view(
+#     openapi.Info(
+#         title="Snippets API",
+#         default_version='v1',
+#         description="Test description",
+#         terms_of_service="https://www.google.com/policies/terms/",
+#         contact=openapi.Contact(email="contact@snippets.local"),
+#         license=openapi.License(name="BSD License"),
+#     ),
+#     public=True,
+#
+#     permission_classes=[permissions.AllowAny,],
+# )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('rooster.urls', namespace='rooster')),
+    path('users', include('users.urls', namespace='users')),
 
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
