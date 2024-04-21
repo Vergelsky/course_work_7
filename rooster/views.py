@@ -17,12 +17,6 @@ class CrossOneselfViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         instance = serializer.save()
-        # data_to_task = {'time': instance.time.strftime('%H:%M:%S'), 'action': instance.action,
-        #                 'user_id': instance.user.first_name}
-        # create_iteration_task(f'rooster.tasks.periodic_peck)',
-        #                       days=instance.period,
-        #                       name=f'Отправка напоминания для {instance.action}',
-        #                       **data_to_task)
         next_run = datetime.now().date() + timedelta(days=instance.period)
         return serializer.save(user=self.request.user, next_run=next_run)
 

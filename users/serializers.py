@@ -10,7 +10,10 @@ class UserSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def create(self, validated_data):
+        print(validated_data)
         password = validated_data.pop('password')
+        print(password)
+        print(validated_data)
         user = User.objects.create(**validated_data)
         user.set_password(password)
         user.save()

@@ -42,3 +42,5 @@ UPDATE: /crossoneself/1/<br>
 
 #### Удаление привычки с id=1:
 DELETE: /crossoneself/1/<br>
+
+образец переменных окружения - в example_env

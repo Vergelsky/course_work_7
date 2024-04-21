@@ -30,7 +30,7 @@ def peck_all():
             message = f'Уже {time}! Пора делать {action}!{debug}'
             data = {'chat_id': user_id, 'text': message}
 
-            response = requests.post(url, params=data)
+            requests.post(url, params=data)
 
             co.next_run = co.next_run + timedelta(days=co.period)
             co.save()

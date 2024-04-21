@@ -1,0 +1,12 @@
+DJANGO_SECRET_KEY =
+
+DB_ENGINE = 'django.db.backends.postgresql'
+DB_NAME = 'rooster'
+DB_USER = 'postgres'
+BD_PASSWORD =
+
+
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+
+BOT_TOKEN=

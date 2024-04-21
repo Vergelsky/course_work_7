@@ -167,13 +167,11 @@ BOT_TOKEN = os.getenv('BOT_TOKEN')
 AUTH_USER_MODEL = 'users.User'
 
 CORS_ALLOWED_ORIGINS = [
-    'http://*',  # Замените на адрес вашего фронтенд-сервера
+    'http://*',
 ]
 
-
 CSRF_TRUSTED_ORIGINS = [
-    "https://read-and-write.example.com", #  Замените на адрес вашего фронтенд-сервера
-    # и добавьте адрес бэкенд-сервера
+    "https://read-and-write.example.com",
 ]
 
 CORS_ALLOW_ALL_ORIGINS = False
