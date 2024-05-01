@@ -1,5 +1,8 @@
 # Курсовая работа по теме DRF
 
+поднимаем проект в докере:
+docker-compose up
+
 "Until the rooster pecks, the man will not cross himself"
 
 #### Регистрация польователя:
